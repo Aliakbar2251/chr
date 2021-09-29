@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Nationality ;
+use App\Models\Nationality;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class NationalitySeeder extends Seeder
 {
@@ -21,9 +22,10 @@ class NationalitySeeder extends Seeder
         ];
 
         foreach ($array as $arr) {
-            Nationality::query()->create([
+            DB::table('nationalities')->insert([
                 'type' => $arr,
             ]);
         }
+
     }
 }

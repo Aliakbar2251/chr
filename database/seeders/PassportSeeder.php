@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PassportSeeder extends Seeder
 {
@@ -13,6 +14,18 @@ class PassportSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('passports')->insert([
+            'name' => 'Ahmad',
+            'surname' => 'Ahmadov',
+            'patronymic' => 'Ahmadovich',
+            'birthday' => '10.01.2000',
+            'is_main' => '1',
+            'blood_group_type' => '0(|)Rh+',
+            'gender_type' => 'Male',
+            'contractor_id' => '1',
+            'nationality_id' => '1',
+            'country_id' => '1'
+
+        ]);
     }
 }

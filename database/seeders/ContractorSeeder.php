@@ -18,17 +18,17 @@ class ContractorSeeder extends Seeder
     public function run()
     {
 
-        Contractor::factory(6)->create();
-//        $array = [
-//            'Irgashev Ibrofim',
-//            'TEshmat ehsmat',
-//            'Va gayra',
-//        ];
-//
-//        foreach ($array as $arr) {
-//            Contractor::query()->create([
-//                'full_name' => $arr,
-//            ]);
-//        }
+
+        $array = [
+            'Aslonov Aslon',
+            'TEshmat ehsmat',
+            'Va gayra',
+        ];
+
+        foreach ($array as $arr) {
+            DB::table('contractors')->insert([
+                'full_name' => $arr,
+            ]);
+        }
     }
 }
