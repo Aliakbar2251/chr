@@ -21,11 +21,18 @@ class PhoneFactory extends Factory
      */
     public function definition()
     {
+        //dd($this->faker->idN(1,5));
+        $values = array();
+        for ($i = 0; $i < 10; $i++) {
+            // get a random digit, but always a new one, to avoid duplicates
+            $values []= $faker->unique()->randomDigit;
+        }
         return [
             'body' => $this->faker->phoneNumber,
             'comment' => $this->faker->text,
             'is_main' => $this->faker->boolean,
-            'contractor_id' =>range(1,6)
+
+            'contractor_id' =>$this->faker->numberBetween()
         ];
     }
 }
