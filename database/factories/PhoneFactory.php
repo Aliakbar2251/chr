@@ -23,9 +23,7 @@ class PhoneFactory extends Factory
     {
         return [
             'body' => $this->faker->phoneNumber,
-            'comment' => $this->faker->text,
-            'is_main' => $this->faker->boolean,
-            'contractor_id' =>range(1,6)
+
         ];
     }
 }
