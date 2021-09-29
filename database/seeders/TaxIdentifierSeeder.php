@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class TaxIdentifierSeeder extends Seeder
 {
@@ -13,6 +14,9 @@ class TaxIdentifierSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('tax_identifiers')->insert([
+            'number' => '653256432545',
+            'contractor_id' => '1'
+        ]);
     }
 }

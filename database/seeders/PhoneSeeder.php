@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Address;
 use App\Models\Phone;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PhoneSeeder extends Seeder
 {
@@ -15,6 +16,11 @@ class PhoneSeeder extends Seeder
      */
     public function run()
     {
-        Phone::factory()->create(6);
+        DB::table('phones')->insert([
+            'body' => '9165165561',
+            'comment' => 'Ismat Ismat',
+            'is_main' => '1',
+            'contractor_id' => '1'
+        ]);
     }
 }
