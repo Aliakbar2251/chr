@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Gender;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class GenderSeeder extends Seeder
 {
@@ -13,6 +15,15 @@ class GenderSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $array = [
+            'Male',
+            'Female'
+        ];
+
+        foreach ($array as $arr) {
+            DB::table('genders')->insert([
+                'type' => $arr,
+            ]);
+        }
     }
 }
