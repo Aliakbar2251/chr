@@ -21,6 +21,7 @@ class PassportSeeder extends Seeder
             'birthday' => '10.01.2000',
             'is_main' => '1',
             'blood_group_type' => '0(|)Rh+',
+            'national_id'=>'897645312316',
             'gender_type' => 'Male',
             'contractor_id' => '1',
             'nationality_id' => '1',

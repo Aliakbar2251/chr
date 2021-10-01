@@ -16,12 +16,12 @@ class AddressSeeder extends Seeder
      */
     public function run()
     {
-//        DB::table('addresses')->insert([
-//            'body' => 'Norak',
-//            'is_main' => '1',
-//            'description' => 'Consectetur quia quisquam itaque amet ut.',
-//            'contractor_id' => '1'
-//        ]);
-        Address::factory(2)->create();
+        DB::table('addresses')->insert([
+            'body' => 'Norak',
+            'is_main' => '1',
+            'description' => 'Consectetur quia quisquam itaque amet ut.',
+            'contractor_id' => '1'
+        ]);
+
     }
 }

@@ -19,10 +19,11 @@ class CreatePassportsTable extends Migration
             $table->string('surname');
             $table->string('patronymic');
             $table->string('birthday');
+            $table->bigInteger('national_id')->unique();
             $table->boolean('is_main');
             $table->string('blood_group_type');
             $table->string('gender_type');
-            $table->foreignId('contractor_id')->unique()->constrained('contractors')->cascadeOnDelete();
+            $table->foreignId('contractor_id')->constrained('contractors')->cascadeOnDelete();
             $table->foreignId('nationality_id')->constrained('nationalities');
             $table->foreignId('country_id')->constrained('countries');
             $table->foreign('blood_group_type')->references('type')->on('blood_groups');
