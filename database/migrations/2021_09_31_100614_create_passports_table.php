@@ -26,8 +26,8 @@ class CreatePassportsTable extends Migration
             $table->foreignId('contractor_id')->constrained('contractors')->cascadeOnDelete();
             $table->foreignId('nationality_id')->constrained('nationalities');
             $table->foreignId('country_id')->constrained('countries');
-            $table->foreign('blood_group_type')->references('type')->on('blood_groups');
-            $table->foreign('gender_type')->references('type')->on('genders');
+            $table->foreign('blood_group_type')->references('type')->on('blood_groups')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreign('gender_type')->references('type')->on('genders')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }
