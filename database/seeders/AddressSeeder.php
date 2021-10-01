@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Address;
+use Database\Factories\AddressFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -21,5 +22,6 @@ class AddressSeeder extends Seeder
             'description' => 'Consectetur quia quisquam itaque amet ut.',
             'contractor_id' => '1'
         ]);
+
     }
 }

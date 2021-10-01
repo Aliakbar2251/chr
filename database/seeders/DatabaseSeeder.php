@@ -26,7 +26,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AddressSeeder::class);
         $this->call(BloodGroupSeeder::class);
         $this->call(CountrySeeder::class);
-        $this->call(UserSeeder::class);
         $this->call(TaxIdentifierSeeder::class);
         $this->call(SocialMediaSeeder::class);
         $this->call(PassportSeeder::class);
