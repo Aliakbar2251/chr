@@ -18,8 +18,8 @@ class CreateAddressesTable extends Migration
             $table->string('body');
             $table->boolean('is_main');
             $table->string('description');
+            $table->unique(['body','contractor_id']);
             $table->foreignId('contractor_id')->constrained('contractors')->cascadeOnDelete();
-            $table->timestamps();
         });
     }
 

@@ -17,8 +17,8 @@ class CreateSocialMediasTable extends Migration
             $table->id();
             $table->string('link');
             $table->string('name');
+            $table->unique(['link','contractor_id']);
             $table->foreignId('contractor_id')->constrained('contractors')->cascadeOnDelete();
-            $table->timestamps();
         });
     }
 
