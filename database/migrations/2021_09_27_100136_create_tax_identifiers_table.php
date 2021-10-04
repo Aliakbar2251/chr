@@ -17,7 +17,6 @@ class CreateTaxIdentifiersTable extends Migration
             $table->id();
             $table->string('number')->unique();
             $table->foreignId('contractor_id')->constrained('contractors')->cascadeOnDelete();
-            $table->timestamps();
         });
     }
 
