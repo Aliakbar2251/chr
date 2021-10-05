@@ -19,27 +19,27 @@ class Passport extends Model
     }
 
 
-    public function bloodGroup(): HasOne
+    public function bloodGroup(): BelongsTo
     {
-        return $this->hasOne(BloodGroup::class);
+        return $this->belongsTo(BloodGroup::class);
     }
 
 
-    public function Gender(): HasOne
+    public function Gender(): BelongsTo
     {
-        return $this->hasOne(Gender::class);
+        return $this->belongsTo(Gender::class);
     }
 
 
-    public function Nationality(): HasOne
+    public function Nationality(): BelongsTo
     {
-        return $this->hasOne(Nationality::class);
+        return $this->belongsTo(Nationality::class);
     }
 
 
-    public function Country(): HasOne
+    public function Country(): BelongsTo
     {
-        return $this->hasOne(Country::class);
+        return $this->belongsTo(Country::class);
     }
 }
 
