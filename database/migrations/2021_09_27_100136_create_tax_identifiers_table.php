@@ -16,6 +16,7 @@ class CreateTaxIdentifiersTable extends Migration
         Schema::create('tax_identifiers', function (Blueprint $table) {
             $table->id();
             $table->string('number')->unique();
+            $table->timestamps();
             $table->foreignId('contractor_id')->constrained('contractors')->cascadeOnDelete();
         });
     }

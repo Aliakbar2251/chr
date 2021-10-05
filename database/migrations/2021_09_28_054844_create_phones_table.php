@@ -19,6 +19,7 @@ class CreatePhonesTable extends Migration
             $table->string('comment');
             $table->boolean('is_main');
             $table->unique(['body','contractor_id']);
+            $table->timestamps();
             $table->foreignId('contractor_id')->constrained('contractors')->cascadeOnDelete();
         });
     }
