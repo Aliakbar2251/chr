@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Nationality extends Model
 {
@@ -12,8 +13,8 @@ class Nationality extends Model
 
     public $timestamps = false;
 
-    public function passport(): BelongsTo
+    public function passport(): HasMany
     {
-        return $this->belongsTo(Passport::class);
+        return $this->hasMany(Passport::class);
     }
 }
