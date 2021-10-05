@@ -25,19 +25,19 @@ class Passport extends Model
     }
 
 
-    public function Gender(): BelongsTo
+    public function gender(): BelongsTo
     {
         return $this->belongsTo(Gender::class);
     }
 
 
-    public function Nationality(): BelongsTo
+    public function nationality(): BelongsTo
     {
         return $this->belongsTo(Nationality::class);
     }
 
 
-    public function Country(): BelongsTo
+    public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class);
     }
