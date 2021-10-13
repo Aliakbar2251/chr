@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PassportRequest;
 use App\Models\Passport;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 
 class PassportController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return Passport[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Http\Response
+     * @return Passport[]|\Illuminate\Database\Eloquent\Collection|Response
      */
     public function index()
     {
@@ -21,7 +22,7 @@ class PassportController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -34,7 +35,7 @@ class PassportController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return JsonResponse
      */
-    public function store(PassportRequest $request)
+    public function store(PassportRequest $request): JsonResponse
     {
         $request->validated();
         Passport::create($request->all());
@@ -45,9 +46,9 @@ class PassportController extends Controller
      * Display the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function show($passport_id)
+    public function show($passport_id): Response
     {
         return Passport::findOrFail($passport_id);
     }
@@ -56,7 +57,7 @@ class PassportController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit($id)
     {
@@ -70,7 +71,7 @@ class PassportController extends Controller
      * @param int $passport_id
      * @return JsonResponse
      */
-    public function update(PassportRequest $request, $passport_id)
+    public function update(PassportRequest $request, $passport_id): JsonResponse
     {
         $request->validated();
         $passport = Passport::findOrFail($passport_id);
@@ -85,7 +86,7 @@ class PassportController extends Controller
      * @param $passport_id
      * @return JsonResponse
      */
-    public function destroy($passport_id)
+    public function destroy($passport_id): JsonResponse
     {
         $contractor = Passport::findOrFail($passport_id);
         $contractor->delete();
