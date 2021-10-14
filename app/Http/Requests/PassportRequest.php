@@ -24,9 +24,9 @@ class PassportRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'             => 'required|string|max:50',
-            'surname'          => 'required|string|max:50',
-            'patronymic'       => 'required|string|max:50',
+            'name'             => 'required|alpha|max:50',
+            'surname'          => 'required|alpha|max:50',
+            'patronymic'       => 'required|alpha|max:50',
             'birthday'         => 'required|date|date_format:Y-m-d|max:100',
             'blood_group_type' => 'required|string|max:20|exists:blood_groups,type',
             'gender_type'      => 'required|alpha|max:20|exists:genders,type',
