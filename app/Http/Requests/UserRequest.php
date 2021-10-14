@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Models\User;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 
 
 class UserRequest extends FormRequest
@@ -28,9 +29,9 @@ class UserRequest extends FormRequest
 
     {
         return [
-            'full_name' => 'required|regex:/^[\pL\s\-]+$/u|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:8',
+            'full_name' => ['required','regex:/^[\pL\s\-]+$/u','max:255','min:5'],
+            'email'     => ['required','email|unique:users,email'],
+            'password'  => ['required', Password::min(8)->letters()->symbols()->numbers()->uncompromised()->mixedCase()]
 
         ];
     }

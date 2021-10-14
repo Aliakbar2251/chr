@@ -24,17 +24,17 @@ class PassportRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|alpha|max:100',
-            'surname' => 'required|alpha|max:100',
-            'patronymic' => 'required|alpha|max:100',
-            'birthday' => 'required|string|max:100',
-            'blood_group_type' => 'required|string|max:20',
-            'gender_type' => 'required|alpha|max:20',
-            'contractor_id' => 'required|int|max:100',
-            'nationality_id' => 'required|int|max:100',
-            'country_id' => 'required|int|max:100',
-            'national_id' => 'required|int',
-            'is_main' => 'required|boolean'
+            'name'             => 'required|string|max:50',
+            'surname'          => 'required|string|max:50',
+            'patronymic'       => 'required|string|max:50',
+            'birthday'         => 'required|date|date_format:Y-m-d|max:100',
+            'blood_group_type' => 'required|string|max:20|exists:blood_groups,type',
+            'gender_type'      => 'required|alpha|max:20|exists:genders,type',
+            'contractor_id'    => 'required|int|max:10|exists:contractors,id',
+            'nationality_id'   => 'required|int|max:10|exists:nationalities,id',
+            'country_id'       => 'required|int|max:10|exists:countries,id',
+            'national_id'      => 'required|int',
+            'is_main'          => 'required|boolean'
         ];
     }
 }

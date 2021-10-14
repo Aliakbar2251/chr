@@ -13,9 +13,18 @@ class Passport extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'surname', 'national_id', 'is_main', 'patronymic',
-        'birthday', 'blood_group_type', 'gender_type', 'contractor_id',
-        'nationality_id', 'country_id'];
+        'name',
+        'surname',
+        'national_id',
+        'is_main',
+        'patronymic',
+        'birthday',
+        'blood_group_type',
+        'gender_type',
+        'contractor_id',
+        'nationality_id',
+        'country_id'
+    ];
 
 
     public function contractor(): BelongsTo

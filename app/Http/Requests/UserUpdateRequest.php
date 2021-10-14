@@ -2,8 +2,11 @@
 
 namespace App\Http\Requests;
 
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 
 class UserUpdateRequest extends FormRequest
 {
@@ -24,12 +27,11 @@ class UserUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        $user_id = $this->route('user_id');
-
+        $user = User::findOrFail($this->user_id);
         return [
-            'full_name' => 'required|regex:/^[\pL\s\-]+$/u|max:255',
-            'email' => 'required|unique:users,email,' . $user_id,
-            'password' => 'required|min:8',
+            'full_name' => ['required','regex:/^[\pL\s\-]+$/u','max:255','min:5'],
+            'email'     => ['required' , Rule::unique('users')->ignore($user)],
+            'password'  => ['required', Password::min(8)->letters()->symbols()->numbers()->uncompromised()->mixedCase()],
         ];
     }
 }

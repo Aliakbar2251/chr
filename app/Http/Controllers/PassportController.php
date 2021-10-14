@@ -5,29 +5,21 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PassportRequest;
 use App\Models\Passport;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Response;
 
 class PassportController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return Passport[]|\Illuminate\Database\Eloquent\Collection|Response
+     * @return JsonResponse
      */
-    public function index()
+    public function index(): JsonResponse
     {
-        return Passport::all();
+        $passports = Passport::all();
+
+        return response()->json($passports);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -37,46 +29,39 @@ class PassportController extends Controller
      */
     public function store(PassportRequest $request): JsonResponse
     {
-        $request->validated();
-        Passport::create($request->all());
-        return response()->json('Passport created');
+        $passport = Passport::create($request->all());
+
+        return response()->json($passport, 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param int $id
-     * @return Response
+     * @param  $passport_id
+     * @return JsonResponse
      */
-    public function show($passport_id): Response
+    public function show($passport_id): JsonResponse
     {
-        return Passport::findOrFail($passport_id);
+        $passport = Passport::findOrFail($passport_id);
+
+        return response()->json($passport);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param int $passport_id
+     * @param  $passport_id
      * @return JsonResponse
      */
     public function update(PassportRequest $request, $passport_id): JsonResponse
     {
-        $request->validated();
         $passport = Passport::findOrFail($passport_id);
+
         $passport->update($request->all());
         $passport->save();
+
         return response()->json($passport);
     }
 
@@ -89,7 +74,9 @@ class PassportController extends Controller
     public function destroy($passport_id): JsonResponse
     {
         $contractor = Passport::findOrFail($passport_id);
+
         $contractor->delete();
+
         return response()->json('Contractor deleted');
     }
 }

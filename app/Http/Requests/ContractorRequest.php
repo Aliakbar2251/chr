@@ -24,7 +24,7 @@ class ContractorRequest extends FormRequest
     public function rules()
     {
         return [
-            'full_name' => 'required|regex:/^[\pL\s\-]+$/u|max:255'
+            'full_name' => 'required|regex:/^[\pL\s\-]+$/u|min:5|max:255'
         ];
     }
 }
