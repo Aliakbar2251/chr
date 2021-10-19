@@ -27,12 +27,12 @@ class PassportRequest extends FormRequest
             'name'             => 'required|alpha|max:50',
             'surname'          => 'required|alpha|max:50',
             'patronymic'       => 'required|alpha|max:50',
-            'birthday'         => 'required|date|date_format:Y-m-d|max:100',
-            'blood_group_type' => 'required|string|max:20|exists:blood_groups,type',
-            'gender_type'      => 'required|alpha|max:20|exists:genders,type',
-            'contractor_id'    => 'required|int|max:10|exists:contractors,id',
-            'nationality_id'   => 'required|int|max:10|exists:nationalities,id',
-            'country_id'       => 'required|int|max:10|exists:countries,id',
+            'birthday'         => 'required|date|date_format:Y-m-d',
+            'blood_group_type' => 'required|string|exists:blood_groups,type',
+            'gender_type'      => 'required|alpha|exists:genders,type',
+            'contractor_id'    => 'required|int|exists:contractors,id',
+            'nationality_id'   => 'required|int|exists:nationalities,id',
+            'country_id'       => 'required|int|exists:countries,id',
             'national_id'      => 'required|int',
             'is_main'          => 'required|boolean'
         ];
