@@ -17,7 +17,7 @@ class PhoneSeeder extends Seeder
     public function run()
     {
         DB::table('phones')->insert([
-            'body' => '9165165561',
+            'body' => '91651655610',
             'comment' => 'Ismat Ismat',
             'is_main' => '1',
             'contractor_id' => '1'
