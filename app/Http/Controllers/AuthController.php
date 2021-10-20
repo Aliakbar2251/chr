@@ -1,14 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\UserRequest;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-
-use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use Validator;
 
 
 class AuthController extends Controller
@@ -18,7 +15,8 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
@@ -32,7 +30,7 @@ class AuthController extends Controller
 
         $validator = $request->validated();
 
-        if (! $token = auth()->attempt($validator)) {
+        if (!$token = auth()->attempt($validator)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
@@ -55,7 +53,7 @@ class AuthController extends Controller
 
         return response()->json([
             'message' => 'User successfully registered',
-            'user' => $user
+            'user'    => $user
         ], 201);
     }
 
@@ -103,9 +101,9 @@ class AuthController extends Controller
     {
         return response()->json([
             'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->guard('api')->factory()->getTTL() * 60,
-            'user' => auth()->user()
+            'token_type'   => 'bearer',
+            'expires_in'   => auth()->guard('api')->factory()->getTTL() * 60,
+            'user'         => auth()->user()
         ]);
     }
 
