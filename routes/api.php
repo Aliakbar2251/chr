@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContractorController;
 use App\Http\Controllers\PassportController;
 use App\Http\Controllers\UserController;
@@ -34,3 +35,8 @@ Route::post('/users', [UserController::class, 'store']);
 Route::put('/users/{user_id}', [UserController::class, 'update']);
 Route::delete('/users/{user_id}', [UserController::class, 'destroy']);
 
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/logout', [AuthController::class, 'logout']);
+Route::post('/refresh', [AuthController::class, 'refresh']);
+Route::get('/user-profile', [AuthController::class, 'userProfile']);
