@@ -60,7 +60,7 @@ class AvatarController extends Controller
      */
     public function destroy($contractor_id): JsonResponse
     {
-        $contractor = Contractor::findOrFail($contractor_id);
+        $contractor = Contractor::has('avatar')->findOrFail($contractor_id);
 
         if ($contractor->avatar) {
             Storage::disk('public')->exists($contractor->avatar->image_path);
