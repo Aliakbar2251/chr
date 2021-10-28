@@ -20,7 +20,7 @@ class AvatarController extends Controller
      */
     public function store(AvatarRequest $request): JsonResponse
     {
-        $contractor = Contractor::findOrFail($request->contractor_id);
+        $contractor = Contractor::with('avatar')->findOrFail($request->contractor_id);
 
         if ($contractor->avatar) {
             if (Storage::disk('public')->exists($contractor->avatar->image_path))
@@ -60,7 +60,7 @@ class AvatarController extends Controller
      */
     public function destroy($contractor_id): JsonResponse
     {
-        $contractor = Contractor::has('avatar')->findOrFail($contractor_id);
+        $contractor = Contractor::with('avatar')->findOrFail($contractor_id);
 
         if ($contractor->avatar) {
             Storage::disk('public')->exists($contractor->avatar->image_path);
