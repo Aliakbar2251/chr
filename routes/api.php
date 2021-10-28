@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AvatarController;
 use App\Http\Controllers\ContractorController;
 use App\Http\Controllers\PassportController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -49,4 +50,7 @@ Route::get('/user-profile', [AuthController::class, 'userProfile']);
 
 Route::post('avatar',[AvatarController::class,'store']);
 Route::delete('avatar/{contractor_id}',[AvatarController::class,'destroy']);
+
+
+Route::post('export',[TestController::class,'export']   );
 

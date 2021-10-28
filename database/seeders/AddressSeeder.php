@@ -20,7 +20,7 @@ class AddressSeeder extends Seeder
             'body' => 'Norak1',
             'is_main' => '1',
             'description' => 'Consectetur quia quisquam itaque amet ut.',
-            'contractor_id' => '1'
+            'contractor_id' => '6'
         ]);
 
     }

@@ -26,7 +26,7 @@ class AvatarController extends Controller
             if (Storage::disk('public')->exists($contractor->avatar->image_path))
                 Storage::disk('public')->delete($contractor->avatar->image_path);
 
-                $contractor->avatar()->delete();
+            $contractor->avatar()->delete();
         }
 
         $file = $request->file('avatar');
@@ -38,7 +38,7 @@ class AvatarController extends Controller
 
         $img = Image::make(public_path('storage/images/' . $fileName))->resize(800, 800,
             function ($constraint) {
-                    $constraint->aspectRatio();
+                $constraint->aspectRatio();
             });
         $img->save();
 

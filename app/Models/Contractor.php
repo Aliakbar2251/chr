@@ -55,4 +55,19 @@ class Contractor extends Model
     {
         return $this->hasOne(Avatar::class);
     }
+
+    public function mainPhone(): HasOne
+    {
+        return $this->hasOne(Phone::class)->where('is_main',1);
+    }
+
+    public function mainAddress(): HasOne
+    {
+        return $this->hasOne(Address::class)->where('is_main',1);
+    }
+
+    public function nationalId(): HasOne
+    {
+        return $this->hasOne(Passport::class);
+    }
 }
