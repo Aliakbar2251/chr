@@ -17,10 +17,10 @@ class PhoneSeeder extends Seeder
     public function run()
     {
         DB::table('phones')->insert([
-            'body' => '94444444',
-            'comment' => 'Ismat Ismat',
-            'is_main' => '1',
-            'contractor_id' => '23'
+            'body'          => '555555555',
+            'comment'       => 'Ismat Ismat',
+            'is_main'       => '1',
+            'contractor_id' => '9'
         ]);
     }
 }

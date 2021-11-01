@@ -15,9 +15,9 @@ class SocialMediaSeeder extends Seeder
     public function run()
     {
         DB::table('social_medias')->insert([
-            'link' => 'https://laravel.com/docs/8.x',
-            'name' => 'Telegram',
-            'contractor_id' => '1'
+            'link'          => 'https://laravel.com/docs/8.x',
+            'name'          => 'Telegram',
+            'contractor_id' => '7'
 
         ]);
     }

@@ -21,8 +21,8 @@ class ContractorSeeder extends Seeder
 
         $array = [
             'Aslonov Aslon',
-            'TEshmat ehsmat',
-            'Va gayra',
+            'Ahmad Ahmadov',
+            'Ali Akbarov',
         ];
 
         foreach ($array as $arr) {

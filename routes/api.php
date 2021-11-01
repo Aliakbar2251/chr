@@ -52,5 +52,4 @@ Route::post('avatar',[AvatarController::class,'store']);
 Route::delete('avatar/{contractor_id}',[AvatarController::class,'destroy']);
 
 
-Route::post('export',[TestController::class,'export']   );
 

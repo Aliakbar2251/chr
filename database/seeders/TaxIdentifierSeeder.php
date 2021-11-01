@@ -15,8 +15,8 @@ class TaxIdentifierSeeder extends Seeder
     public function run()
     {
         DB::table('tax_identifiers')->insert([
-            'number' => '653256432545',
-            'contractor_id' => '1'
+            'number'        => '653256432545',
+            'contractor_id' => '7'
         ]);
     }
 }
