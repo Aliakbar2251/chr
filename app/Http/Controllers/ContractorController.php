@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ContractorRequest;
 use App\Models\Contractor;
 use Illuminate\Http\JsonResponse;
-
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class ContractorController extends Controller
 {
@@ -32,7 +33,7 @@ class ContractorController extends Controller
     {
         $contractor = Contractor::create($request->all());
 
-        return response()->json($contractor,201);
+        return response()->json($contractor, 201);
     }
 
 
@@ -81,4 +82,35 @@ class ContractorController extends Controller
 
         return response()->json('Contractor deleted');
     }
+
+    /**
+     * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
+     */
+    public function export(): JsonResponse
+    {
+        $contractors = Contractor::with(['mainPhone', 'mainAddress', 'passport'])->get();
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        $sheet->setCellValue('A1', 'Full Name');
+        $sheet->setCellValue('B1', 'Phone');
+        $sheet->setCellValue('C1', 'Address');
+        $sheet->setCellValue('D1', 'Serial Number');
+        $rowCount = 2;
+
+        foreach ($contractors as $contractor) {
+            $sheet->setCellValue('A' . $rowCount, $contractor->full_name);
+            $sheet->setCellValue('B' . $rowCount, $contractor->mainPhone ? $contractor->mainPhone->body : 'Doesnt exist');
+            $sheet->setCellValue('C' . $rowCount, $contractor->mainAddress ? $contractor->mainAddress->body : 'Doesnt exist');
+            $sheet->setCellValue('D' . $rowCount, $contractor->passport ? $contractor->passport->serial_number : 'Doesnt exist');
+            $rowCount++;
+        }
+
+        $writer = new Xlsx($spreadsheet);
+        $writer->save("ContractorInfo.xlsx");
+
+        return response()->json('File successfully saved');
+    }
+
+
 }

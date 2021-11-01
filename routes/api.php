@@ -50,5 +50,5 @@ Route::get('/user-profile', [AuthController::class, 'userProfile']);
 Route::post('avatar',[AvatarController::class,'store']);
 Route::delete('avatar/{contractor_id}',[AvatarController::class,'destroy']);
 
-
+Route::post('export',[ContractorController::class,'export']);
 
