@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ContractorRequest;
 use App\Models\Contractor;
 use Illuminate\Http\JsonResponse;
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 
 class ContractorController extends Controller
 {
@@ -33,7 +32,7 @@ class ContractorController extends Controller
     {
         $contractor = Contractor::create($request->all());
 
-        return response()->json($contractor, 201);
+        return response()->json($contractor,201);
     }
 
 
@@ -80,7 +79,6 @@ class ContractorController extends Controller
 
         $contractor->delete();
 
-        return response()->json('Contractor deleted',);
+        return response()->json('Contractor deleted');
     }
-
 }
