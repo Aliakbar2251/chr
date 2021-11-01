@@ -19,13 +19,13 @@ class PassportSeeder extends Seeder
             'surname' => 'Ahmadov',
             'patronymic' => 'Ahmadovich',
             'birthday' => '10.01.2000',
-            'is_main' => '0',
+            'is_main' => '1',
             'blood_group_type'=> '0(|)Rh+',
-            'national_id'=>'451245',
+            'national_id'=>'655565',
             'gender_type' => 'Male',
-            'contractor_id' => '8',
+            'contractor_id' => '23',
             'nationality_id' => '2',
-            'country_id' => '1'
+            'country_id' => '2'
 
         ]);
     }
