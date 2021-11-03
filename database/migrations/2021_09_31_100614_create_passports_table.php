@@ -20,6 +20,7 @@ class CreatePassportsTable extends Migration
             $table->string('patronymic');
             $table->string('birthday');
             $table->bigInteger('national_id')->unique();
+            $table->string('serial_number')->unique();
             $table->boolean('is_main');
             $table->string('blood_group_type');
             $table->string('gender_type');

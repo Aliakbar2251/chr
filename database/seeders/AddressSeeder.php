@@ -17,10 +17,10 @@ class AddressSeeder extends Seeder
     public function run()
     {
         DB::table('addresses')->insert([
-            'body' => 'Norak1',
-            'is_main' => '1',
-            'description' => 'Consectetur quia quisquam itaque amet ut.',
-            'contractor_id' => '1'
+            'body'          => 'Kulob',
+            'is_main'       => '1',
+            'description'   => 'Consectetur quia quisquam itaque amet ut.',
+            'contractor_id' => '8'
         ]);
 
     }
