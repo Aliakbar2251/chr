@@ -59,13 +59,13 @@ class Contractor extends Model
 
     public function mainPhone(): HasOne
     {
-        return $this->hasOne(Phone::class)->where('is_main',1);
+        return $this->hasOne(Phone::class)->where('is_main', 1);
     }
 
 
     public function mainAddress(): HasOne
     {
-        return $this->hasOne(Address::class)->where('is_main',1);
+        return $this->hasOne(Address::class)->where('is_main', 1);
     }
 
 

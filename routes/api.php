@@ -39,6 +39,11 @@ Route::group([
     Route::post('/users', [UserController::class, 'store']);
     Route::put('/users/{user_id}', [UserController::class, 'update']);
     Route::delete('/users/{user_id}', [UserController::class, 'destroy']);
+
+    Route::post('avatar', [AvatarController::class, 'store']);
+    Route::delete('avatar/{contractor_id}', [AvatarController::class, 'destroy']);
+
+    Route::post('export', [ContractorController::class, 'export']);
 });
 
 Route::post('/login', [AuthController::class, 'login']);
@@ -47,8 +52,5 @@ Route::post('/logout', [AuthController::class, 'logout']);
 Route::post('/refresh', [AuthController::class, 'refresh']);
 Route::get('/user-profile', [AuthController::class, 'userProfile']);
 
-Route::post('avatar',[AvatarController::class,'store']);
-Route::delete('avatar/{contractor_id}',[AvatarController::class,'destroy']);
 
-Route::post('export',[ContractorController::class,'export']);
 
