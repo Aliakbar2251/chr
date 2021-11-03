@@ -43,8 +43,8 @@ Route::group([
     Route::post('avatar', [AvatarController::class, 'store']);
     Route::delete('avatar/{contractor_id}', [AvatarController::class, 'destroy']);
 
-    Route::post('export', [ContractorController::class, 'export']);
 });
+Route::get('export', [ContractorController::class, 'export']);
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
