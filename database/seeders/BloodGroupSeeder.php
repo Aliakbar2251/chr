@@ -26,7 +26,11 @@ class BloodGroupSeeder extends Seeder
         ];
 
 
-        DB::table('blood_groups')->insert($array);
+        foreach ($array as $arr) {
+            DB::table('blood_groups')->insert([
+                'type' => $arr,
+            ]);
+        }
 
     }
 }
